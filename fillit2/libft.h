@@ -23,6 +23,12 @@ typedef	struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+typedef	struct		s_cursor
+{
+	int				size;
+	int				posi;
+	int				check;
+}					t_cursor;
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t len);
 void				*ft_memcpy(void	*dst, const void *src, size_t n);
@@ -84,7 +90,7 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_nodouble(char *s, char c, char d);
 unsigned			ft_atobin(char *str);
 void				ft_tetrimatch(char *s);
-int					ft_backtracking(char *result, int position, unsigned int *a, int j);
+int					ft_backtracking(char *result, t_cursor cursor, unsigned int *a, int j);
 unsigned int		*ft_formchecker(unsigned int *b);
 int					ft_sqrt(int nb);
 char				*ft_makesquare(int size);

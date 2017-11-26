@@ -42,6 +42,7 @@ int		main(int argc, char **argv)
 	unsigned int	*a;
 	char		*result;
 	unsigned int	*b;
+	t_cursor		cursor;
 
 	if (argc > 0)
 	{
@@ -100,8 +101,11 @@ int		main(int argc, char **argv)
 		printf("Premier a[0] : %d\n", a[0]);
 		j = ft_sqrt(i) * 2;
 		result = ft_makesquare(j);
+		cursor.size = ft_sqrt(i) * 2;
+		cursor.posi = 0;
+		cursor.check = 0;
 		printf("Grille avnt :\n%s\n", result);
-		ft_backtracking(result, 0, a, 0, 0);
+		ft_backtracking(result, cursor, a, 0);
 		printf("Grille apres :\n%s\n", result);
 	}
 	return (0);
