@@ -6,7 +6,7 @@
 /*   By: ndelest <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/23 19:54:01 by ndelest           #+#    #+#             */
-/*   Updated: 2017/11/25 20:34:28 by ndelest          ###   ########.fr       */
+/*   Updated: 2017/11/26 18:39:34 by ndelest          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,13 +105,15 @@ int	  ft_backtracking(char *result, t_cursor cursor, unsigned int *a, int j)
 		return (1);
 	if (result[cursor.posi] != 0)
 	{
+		while (result[cursor.posi] != '.' && result[cursor.posi + 1] != 0)
+			cursor.posi = cursor.posi + 1;
 		if (ft_isfilled(result, a[j], cursor))
 		{
 			ft_fillit(result, a[j], cursor, j);
-			ft_putstr(result);
-			ft_putchar('\n');
 			cursor.check = cursor.posi;
 			cursor.posi = 0;
+			ft_putstr(result);
+			ft_putchar('\n');
 			if (ft_backtracking(result, cursor, a, j + 1) == 1)
 				return (1);
 			cursor.posi = cursor.check;

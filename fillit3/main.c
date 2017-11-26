@@ -6,7 +6,7 @@
 /*   By: ndelest <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/23 11:43:07 by ndelest           #+#    #+#             */
-/*   Updated: 2017/11/25 20:26:58 by ndelest          ###   ########.fr       */
+/*   Updated: 2017/11/26 18:57:21 by ndelest          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		main(int argc, char **argv)
 	{
 		tab = ft_filetotab(argv[1]);
 		i = 0;
-		a = (unsigned int *)ft_memalloc(300);
+		a = (unsigned int *)ft_memalloc(600);
 		b = (unsigned int *)ft_memalloc(100);
 		while (tab[i] != 0)
 		{
@@ -57,13 +57,6 @@ int		main(int argc, char **argv)
 		}
 		printf("valeur de i :%d\n", i);
 		a[i] = 65535;
-		i = 0;
-		while (a[i] != 65535)
-		{
-			i++;
-			printf("Valeur de a[%d] : %d\n", i, a[i]);
-		}
-		i = 0;
 /*		while (a[i] != 65535)
 		{
 			j = 0;
@@ -79,6 +72,12 @@ int		main(int argc, char **argv)
 		}*/
 		i = 0;
 		b = ft_formchecker(b);
+		while (b[i] != 65535)
+		{
+			printf("Piece numero %d : %d\n", i , b[i]);
+			i++;
+		}
+		i = 0;
 		ft_putstr("Coucou ***** dernier a :");
 		ft_putnbr(a[4]);
 		ft_putchar('\n');
@@ -99,13 +98,16 @@ int		main(int argc, char **argv)
 		}
 		printf("Dernier a[%d] : %d\n", i , a[i]);
 		printf("Premier a[0] : %d\n", a[0]);
-		j = ft_sqrt(i) * 2;
-		result = ft_makesquare(j);
-		cursor.size = ft_sqrt(i) * 2;
+		cursor.size = (ft_sqrt(i) * 2);
+		result = ft_makesquare(cursor.size);
 		cursor.posi = 0;
 		cursor.check = 0;
 		printf("Grille avnt :\n%s\n", result);
-		ft_backtracking(result, cursor, a, 0);
+		while (!(ft_backtracking(result, cursor, a, 0)))
+		{
+			cursor.size = cursor.size + 1;
+			result = ft_makesquare(cursor.size);
+		}
 		printf("Grille apres :\n%s\n", result);
 	}
 	return (0);
