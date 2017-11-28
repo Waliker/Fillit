@@ -6,7 +6,7 @@
 /*   By: ndelest <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 18:04:07 by ndelest           #+#    #+#             */
-/*   Updated: 2017/11/25 20:36:50 by ndelest          ###   ########.fr       */
+/*   Updated: 2017/11/28 16:45:01 by ndelest          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef	struct		s_cursor
 	int				size;
 	int				posi;
 	int				check;
+	int				form;
 }					t_cursor;
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t len);

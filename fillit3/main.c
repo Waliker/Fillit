@@ -6,7 +6,7 @@
 /*   By: ndelest <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/23 11:43:07 by ndelest           #+#    #+#             */
-/*   Updated: 2017/11/28 13:00:31 by ndelest          ###   ########.fr       */
+/*   Updated: 2017/11/28 18:50:53 by ndelest          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		main(int argc, char **argv)
 	char		*result;
 	unsigned int	*b;
 	t_cursor		cursor;
+	long long		test;
 
 	if (argc > 0)
 	{
@@ -98,7 +99,8 @@ int		main(int argc, char **argv)
 		}
 		printf("Dernier a[%d] : %d\n", i , a[i]);
 		printf("Premier a[0] : %d\n", a[0]);
-		cursor.size = (ft_sqrt(i) * 2) - 1;
+		cursor.form = i;
+		cursor.size = ft_sqrt(i * 4);
 		result = ft_makesquare(cursor.size);
 		cursor.posi = 0;
 		cursor.check = 0;
@@ -110,5 +112,9 @@ int		main(int argc, char **argv)
 		}
 		printf("Grille apres :\n%s\n", result);
 	}
+	test = 0;
+	j = 31;
+	test = test | (1 << j);
+	printf("i est egal a : %lld\n", test);
 	return (0);
 }
