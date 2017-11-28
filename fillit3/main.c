@@ -6,7 +6,7 @@
 /*   By: ndelest <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/23 11:43:07 by ndelest           #+#    #+#             */
-/*   Updated: 2017/11/26 18:57:21 by ndelest          ###   ########.fr       */
+/*   Updated: 2017/11/28 13:00:31 by ndelest          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int		main(int argc, char **argv)
 		}
 		printf("Dernier a[%d] : %d\n", i , a[i]);
 		printf("Premier a[0] : %d\n", a[0]);
-		cursor.size = (ft_sqrt(i) * 2);
+		cursor.size = (ft_sqrt(i) * 2) - 1;
 		result = ft_makesquare(cursor.size);
 		cursor.posi = 0;
 		cursor.check = 0;
